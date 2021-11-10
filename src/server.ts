@@ -1,13 +1,13 @@
-import express, { NextFunction, Request, Response } from 'express'
+import express from 'express'
 import swaggerUi from 'swagger-ui-express'
 import 'express-async-errors'
 
 import './database'
-import './shared/container'
+import '@shared/container'
 
 import routes from './routes';
 import swaggerFile from './swagger.json'
-import { errorKeeper } from './middlewares/errorKeeper'
+import { errorKeeper } from '@middlewares/errorKeeper'
 
 const app = express()
 

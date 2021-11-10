@@ -1,19 +1,19 @@
 import { inject, injectable } from "tsyringe"
 
-import Category from "../../entities/Category"
-import { ICategoryRepository } from "../../repositories/ICategoryRepository"
+import Category from "@modules/cars/entities/Category"
+import { ICategoryRepository } from "@modules/cars/repositories/ICategoryRepository"
 
 @injectable()
 class ListCategoriesUseCase {
-  constructor(
-    @inject('CategoryRepository')
-    private categoriesRepository: ICategoryRepository) {}
+	constructor(
+		@inject('CategoryRepository')
+		private categoriesRepository: ICategoryRepository) { }
 
-  async execute(): Promise<Category[]> {
-    const categories = await this.categoriesRepository.list()
+	async execute(): Promise<Category[]> {
+		const categories = await this.categoriesRepository.list()
 
-    return categories
-  }
+		return categories
+	}
 }
 
 export default ListCategoriesUseCase

@@ -1,15 +1,15 @@
-import Specification from "../entities/Specification";
+import Specification from "@modules/cars/entities/Specification";
 
 interface ICreateSpecificationDTO {
-  name: string;
+	name: string;
 
-  description: string;
+	description: string;
 }
 
 interface ISpecificationRepository {
-  create({ description, name }: ICreateSpecificationDTO): Promise<void>;
+	create({ description, name }: ICreateSpecificationDTO): Promise<void>;
 
-  findByName(name: string): Promise<Specification>;
+	findByName(name: string): Promise<Specification>;
 }
 
 export { ICreateSpecificationDTO, ISpecificationRepository };

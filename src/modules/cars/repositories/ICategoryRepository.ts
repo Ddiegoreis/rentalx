@@ -1,17 +1,16 @@
-import Category from "../entities/Category";
-
+import Category from "@modules/cars/entities/Category";
 interface ICreateCategoryDTO {
-  name: string;
+	name: string;
 
-  description: string;
+	description: string;
 }
 
 interface ICategoryRepository {
-  findByName(nome: string): Promise<Category>;
+	findByName(nome: string): Promise<Category>;
 
-  list(): Promise<Category[]>;
+	list(): Promise<Category[]>;
 
-  create({ name, description }: ICreateCategoryDTO): Promise<void>;
+	create({ name, description }: ICreateCategoryDTO): Promise<void>;
 }
 
 export { ICategoryRepository, ICreateCategoryDTO };
