@@ -2,12 +2,15 @@ import express from 'express'
 import swaggerUi from 'swagger-ui-express'
 import 'express-async-errors'
 
-import '@shared/infra/typeorm'
+import "reflect-metadata";
 import '@shared/container'
 
+import createConnection from '@shared/infra/typeorm'
 import routes from '@shared/infra/http/routes';
 import { errorKeeper } from '@shared/infra/http/middlewares/errorKeeper'
 import swaggerFile from '../../../swagger.json'
+
+createConnection()
 
 const server = express()
 
