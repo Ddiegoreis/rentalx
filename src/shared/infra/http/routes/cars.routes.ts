@@ -10,7 +10,7 @@ import UploadCarImageController from '@modules/cars/useCases/uploadCarImage/Uplo
 import { ensureAuthenticate } from '../middlewares/ensureAuthenticate'
 import { ensureAdmin } from '../middlewares/ensureAdmin'
 
-const carsRouter = Router()
+const carsRoutes = Router()
 
 const uploadCarImages = multer(uploadConfig.upload('./tmp/carImages'))
 
@@ -19,23 +19,23 @@ const listAvailableCarsController = new ListAvailableCarsController()
 const createCarSpecificationController = new CreateCarSpecificationController()
 const uploadCarImageController = new UploadCarImageController()
 
-carsRouter.get('/available', listAvailableCarsController.handle)
+carsRoutes.get('/available', listAvailableCarsController.handle)
 
-carsRouter.post(
+carsRoutes.post(
 	'/',
 	ensureAuthenticate,
 	ensureAdmin,
 	createCarController.handle
 )
 
-carsRouter.post(
+carsRoutes.post(
 	'/specifications/:id',
 	ensureAuthenticate,
 	ensureAdmin,
 	createCarSpecificationController.handle
 )
 
-carsRouter.post(
+carsRoutes.post(
 	'/images/:id',
 	ensureAuthenticate,
 	ensureAdmin,
@@ -43,4 +43,4 @@ carsRouter.post(
 	uploadCarImageController.handle
 )
 
-export default carsRouter
+export default carsRoutes
